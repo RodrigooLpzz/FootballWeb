@@ -2,19 +2,20 @@ interface PlayerProfile {
   player: PlayerBasicData
 }
 
+
 interface PlayerBasicData {
-  id: number,
-  name: string,
-  firstname: string,
-  lastname: string,
-  age: number,
+  id: number | null,
+  name: string| null,
+  firstname: string | null,
+  lastname: string | null,
+  age: number | null,
   birth: Birth,
-  nationality: string,
-  height: string,
-  weight: string,
-  number: number,
-  position: string,
-  photo: string
+  nationality: string | null,
+  height: string | null,
+  weight: string | null,
+  number: number | null,
+  position: string | null,
+  photo: string | null
 }
 
 interface PlayerStatisticData {
@@ -37,9 +38,9 @@ interface Player {
 }
 
 interface Birth {
-  date: string,
-  place: string,
-  country: string
+  date: string | null,
+  place: string | null,
+  country: string | null
 }
 
 
@@ -145,5 +146,9 @@ interface Penalty {
   saved: number | null
 }
 
-
+interface PlayerPageProps {
+  params: {
+    id: string; // Next.js lo llena con el valor de la URL
+  };
+}
 

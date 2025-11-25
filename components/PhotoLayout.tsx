@@ -1,14 +1,21 @@
 import Image from 'next/image'
 
 export default function PhotoLayout({ data } : { data: PlayerProfile}){
+
+  const DEFAULT_URL = '/noplayerphoto'
+
+  const src = data.player.photo 
+            ? data.player.photo // Si no es null, usa la URL de la API
+            : DEFAULT_URL;
   return (
     <div className="photo-layout">
       <div className="player-photo">
         <Image 
-          src={data.player.photo}
+          src={src}
           width={125}
           height={125}
           alt={`Photo of ${data.player.name}`}
+          className='player photo'
         />
       </div>
       <p className='player-name'>{data.player.name}</p>
